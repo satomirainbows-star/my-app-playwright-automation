@@ -17,7 +17,7 @@ UI Automation Testing Framework using **Playwright + Cucumber (BDD)** with **Pag
 
 # 📂 Project Structure
 
-my-app-playwright-automation/
+```my-app-playwright-automation/
 │
 ├── features/
 │   └── ui/

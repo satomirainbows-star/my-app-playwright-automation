@@ -1,0 +1,910 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "employee-api-management-(post-&-get);[post]-create-employee-success-returns-201",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "[POST] Create employee success returns 201",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 718250
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I prepare valid employee data",
+            "match": {
+              "location": "step_definitions/api/employee.steps.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 58917
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I send a POST request to \"/api/v1/employees\"",
+            "match": {
+              "location": "step_definitions/api/employee.steps.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 118714165
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the API response status should be 201",
+            "match": {
+              "location": "step_definitions/api/employee.steps.js:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 729541
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 89333
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@API",
+            "line": 1
+          },
+          {
+            "name": "@Positive",
+            "line": 5
+          },
+          {
+            "name": "@POST",
+            "line": 5
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "employee-api-management-(post-&-get);[post]-create-employee-failed---invalid-email-format-(400)",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "[POST] Create employee failed - Invalid email format (400)",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 36500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "I prepare employee data with invalid email \"somsak.test.com\"",
+            "match": {
+              "location": "step_definitions/api/employee.steps.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 38958
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I send a POST request to \"/api/v1/employees\"",
+            "match": {
+              "location": "step_definitions/api/employee.steps.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23554125
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "the API response status should be 400",
+            "match": {
+              "location": "step_definitions/api/employee.steps.js:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 210332
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the response body \"defaultMessage\" should be \"must be a well-formed email address\"",
+            "match": {
+              "location": "step_definitions/api/employee.steps.js:101"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 121208
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 192375
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@API",
+            "line": 1
+          },
+          {
+            "name": "@Negative",
+            "line": 11
+          },
+          {
+            "name": "@POST",
+            "line": 11
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "employee-api-management-(post-&-get);[get]-retrieve-employee-by-existing-id-(200)",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "[GET] Retrieve employee by existing ID (200)",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 55166
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I send a GET request to \"/api/v1/employees/1\"",
+            "match": {
+              "location": "step_definitions/api/employee.steps.js:65"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18918709
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the API response status should be 200",
+            "match": {
+              "location": "step_definitions/api/employee.steps.js:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 162625
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 79917
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@API",
+            "line": 1
+          },
+          {
+            "name": "@Positive",
+            "line": 19
+          },
+          {
+            "name": "@GET",
+            "line": 19
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "employee-api-management-(post-&-get);[get]-retrieve-non-existing-id-returns-404",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "[GET] Retrieve non-existing ID returns 404",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 29125
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "I send a GET request to \"/api/v1/employees/999\"",
+            "match": {
+              "location": "step_definitions/api/employee.steps.js:65"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13084541
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "the API response status should be 404",
+            "match": {
+              "location": "step_definitions/api/employee.steps.js:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 144791
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "the response body message should be \"Employee not found with ID 999\"",
+            "match": {
+              "location": "step_definitions/api/employee.steps.js:132"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 201291
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 30624
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@API",
+            "line": 1
+          },
+          {
+            "name": "@Negative",
+            "line": 24
+          },
+          {
+            "name": "@GET",
+            "line": 24
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "employee-api-management-(post-&-get)",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Employee API Management (POST & GET)",
+    "tags": [
+      {
+        "name": "@API",
+        "line": 1
+      }
+    ],
+    "uri": "features/api/employee.feature"
+  },
+  {
+    "description": "  As a customer, I want to complete a purchase process \n  from login to summary to ensure system integrity.",
+    "elements": [
+      {
+        "description": "",
+        "id": "e-commerce-web-application-end-to-end-validation;[step-1-4]-complete-purchase-with-valid-data-and-verify-address-concatenation",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "[Step 1-4] Complete purchase with valid data and verify address concatenation",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 336444750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1503252416
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I login with username \"admin@admin.com\" and password \"admin123\"",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 148283292
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "I should be redirected to the shop page",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4952707
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I add \"Dior\" quantity 2 to the cart",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 386090208
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "I add \"Gucci\" quantity 3 to the cart",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 99524167
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "the cart badge should display \"5\" items",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:63"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3752084
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "the total cost should equal the sum of item prices times quantities",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:73"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4749416
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I proceed to checkout",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 50755666
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "field",
+                      "value"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "street",
+                      "123 Sukhumvit"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "city",
+                      "Bangkok"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "country",
+                      "Thailand"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 28,
+            "name": "I fill shipping details:",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:89"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12536458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 33,
+            "name": "I click \"Submit Order\"",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:110"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27446417
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 36,
+            "name": "I should see the order success message",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:129"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1186749
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 37,
+            "name": "the specific address should be \"123 Sukhumvit, Bangkok - Thailand\"",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:139"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 867165
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "the total price should be calculated correctly with 7% VAT",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:149"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 130208
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 23217250
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@UI",
+            "line": 1
+          },
+          {
+            "name": "@Ecommerce",
+            "line": 1
+          },
+          {
+            "name": "@Positive",
+            "line": 13
+          },
+          {
+            "name": "@FullFlow",
+            "line": 13
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e-commerce-web-application-end-to-end-validation;[step-1]-login-failed-with-invalid-credentials",
+        "keyword": "Scenario",
+        "line": 45,
+        "name": "[Step 1] Login failed with invalid credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 102927999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1715031333
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 46,
+            "name": "I login with username \"wrong_user\" and password \"1234\"",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 129641540
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 47,
+            "name": "I should see an authentication error \"Bad credentials\"",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1393834
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 15734250
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@UI",
+            "line": 1
+          },
+          {
+            "name": "@Ecommerce",
+            "line": 1
+          },
+          {
+            "name": "@Negative",
+            "line": 44
+          },
+          {
+            "name": "@Login",
+            "line": 44
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e-commerce-web-application-end-to-end-validation;[step-3]-checkout-failed-due-to-missing-required-fields",
+        "keyword": "Scenario",
+        "line": 49,
+        "name": "[Step 3] Checkout failed due to missing required fields",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 109083542
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1530061458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 50,
+            "name": "I login with username \"admin@admin.com\" and password \"admin123\"",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 106054000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 51,
+            "name": "I add \"Dior J'adore\" quantity 1 to the cart",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 312222917
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "I proceed to checkout",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 38462290
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 53,
+            "name": "I leave the \"Street\" field empty",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5604542
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 54,
+            "name": "I click \"Submit Order\"",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:110"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27078791
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 55,
+            "name": "I should see a validation error \"Street is required\"",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:119"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1356709
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 16371457
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@UI",
+            "line": 1
+          },
+          {
+            "name": "@Ecommerce",
+            "line": 1
+          },
+          {
+            "name": "@Negative",
+            "line": 48
+          },
+          {
+            "name": "@Checkout",
+            "line": 48
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e-commerce-web-application-end-to-end-validation;[step-2]-add-items-exceeding-available-stock",
+        "keyword": "Scenario",
+        "line": 58,
+        "name": "[Step 2] Add items exceeding available stock",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 116282207
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1574819167
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 59,
+            "name": "I login with username \"admin@admin.com\" and password \"admin123\"",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 123062041
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 60,
+            "name": "I add \"Dior J'adore\" quantity 51 to the cart",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 94791
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 61,
+            "name": "I should see a stock warning \"Product is out of stock or insufficient\"",
+            "match": {
+              "location": "step_definitions/ui/ecommerce.steps.js:169"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 227124
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 15056125
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@UI",
+            "line": 1
+          },
+          {
+            "name": "@Ecommerce",
+            "line": 1
+          },
+          {
+            "name": "@Negative",
+            "line": 57
+          },
+          {
+            "name": "@Inventory",
+            "line": 57
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "e-commerce-web-application-end-to-end-validation",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "E-commerce Web Application End-to-End Validation",
+    "tags": [
+      {
+        "name": "@UI",
+        "line": 1
+      },
+      {
+        "name": "@Ecommerce",
+        "line": 1
+      }
+    ],
+    "uri": "features/ui/ecommerce.feature"
+  }
+]

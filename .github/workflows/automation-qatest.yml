@@ -1,0 +1,129 @@
+name: automation-qatest
+
+# =========================
+# Trigger Workflow
+# =========================
+
+on:
+
+  # run when push to main branch
+  push:
+    branches:
+      - main
+
+  # run when create pull request
+  pull_request:
+    branches:
+      - main
+
+# =========================
+# Jobs
+# =========================
+
+jobs:
+
+  automation-test:
+
+    # use ubuntu machine
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # =========================
+      # Checkout Source Code
+      # =========================
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # =========================
+      # Setup Node.js
+      # =========================
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+
+        with:
+          node-version: 20
+
+      # =========================
+      # Install Dependencies
+      # =========================
+
+      - name: Install NPM Packages
+        run: npm install
+
+      # =========================
+      # Install Playwright Browsers
+      # =========================
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      # =========================
+      # Start Docker API
+      # =========================
+
+      - name: Start QA Practice API
+        run: |
+          docker run -d --rm \
+          --name qa-practice-api \
+          -p 8887:8081 \
+          rvancea/qa-practice-api:latest
+
+      # =========================
+      # Wait API Ready
+      # =========================
+
+      - name: Wait for API Container
+        run: sleep 10
+
+      # =========================
+      # Run API Automation Tests
+      # =========================
+
+      - name: Run API Tests
+        run: npm run test:api-only
+
+      # =========================
+      # Run UI Automation Tests
+      # =========================
+
+      - name: Run UI Tests
+        run: npm run test:ui-only
+
+      - name: Run Positive Tests
+        run: npm run test:positive
+
+      # =========================
+      # Upload HTML Report
+      # =========================
+
+      - name: Upload HTML Report
+        uses: actions/upload-artifact@v4
+
+        with:
+          name: playwright-html-report
+          path: reports/html/
+
+      # =========================
+      # Upload Screenshots
+      # =========================
+
+      - name: Upload Failure Screenshots
+        uses: actions/upload-artifact@v4
+
+        with:
+          name: failure-screenshots
+          path: reports/screenshots/
+
+      # =========================
+      # Upload JSON Report
+      # =========================
+
+      - name: Upload JSON Report
+        uses: actions/upload-artifact@v4
+
+        with:
+          name: json-report
+          path: reports/json/

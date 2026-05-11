@@ -59,3 +59,5 @@ Feature: E-commerce Web Application End-to-End Validation
     When I login with username "admin@admin.com" and password "admin123"
     And I add "Dior J'adore" quantity 51 to the cart
     Then I should see a stock warning "Product is out of stock or insufficient"
+
+    ---
